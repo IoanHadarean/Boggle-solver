@@ -1,6 +1,7 @@
 #Importing the module unittest and boggle
 import unittest
 import boggle
+from string import ascii_uppercase
 
 
 """
@@ -47,3 +48,11 @@ class TestBoggle(unittest.TestCase):
         self.assertNotIn((1,2), grid)
         self.assertNotIn((2,1), grid)
         self.assertNotIn((2,2), grid)
+        
+    def test_is_filled_with_letters(self):
+        """
+        Ensure that each of the coordinates in the grid contains letters
+        """
+        grid = boggle.make_grid(2,2)
+        for letter in grid.values():
+            self.assertIn(letter, ascii_uppercase)
