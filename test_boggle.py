@@ -39,11 +39,11 @@ class TestBoggle(unittest.TestCase):
         of the grid can be accessed
         """
         grid = boggle.make_grid(2,2)
-        #check if 0, 0, 0,1, 1,0, 1,1, 2,1, 1,2 and 2,1 are in the grid
+        #check if {0,0},  {0,1},  {1,0},  {1,1} are in the grid
         self.assertIn((0,0), grid)
         self.assertIn((0,1), grid)
         self.assertIn((1,0), grid)
         self.assertIn((1,1), grid)
-        self.assertIn((1,2), grid)
-        self.assertIn((2,1), grid)
-        self.assertIn((2,2), grid)
+        self.assertNotIn((1,2), grid)
+        self.assertNotIn((2,1), grid)
+        self.assertNotIn((2,2), grid)
