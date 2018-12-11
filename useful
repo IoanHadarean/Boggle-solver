@@ -9,5 +9,19 @@ class SomeClass:
     def class_method(cls):
         print("the class method was called")
         
-self points to an instance method
+self points to an instance(object) method
 cls points to a class method
+
+There can be static methods that do no point to self
+Example: class A(object):
+
+    @staticmethod
+    def stat_meth():
+        print("Look no self was passed")
+Here, @staticmethod is a function decorator which makes stat_meth() static. Let us instantiate this 
+class and call the method.
+
+
+>>> a = A()
+>>> a.stat_meth()
+Look no self was passed
