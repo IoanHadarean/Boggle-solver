@@ -24,11 +24,15 @@ def neighbours_of_position(coords):
     
     #Left to right
     left =(row, col -1)
-    #The '(row,col)' coordinates passes to this function
+    #The '(row,col)' coordinates passed to this function
     #are situated here
     right =(row, col +1)
-    
+   
     #Bottom-left to bottom-right
     bottom_left = (row +1, col -1)
-    bottom_center = (row +1, col) 
+    bottom_center = (row +1, col)
     bottom_right = (row +1, col +1)
+    
+    return [top_left, top_center, top_right,
+            left, right, 
+            bottom_left, bottom_center, bottom_right]

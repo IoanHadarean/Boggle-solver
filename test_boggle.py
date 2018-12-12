@@ -61,13 +61,16 @@ class TestBoggle(unittest.TestCase):
         """
         Ensure that a position has 8 neighbours
         """
-        coords = (1,2)
+        coords = (3,3)
         neighbours = boggle.neighbours_of_position(coords)
-        self.assertIn((0,1), neighbours)
-        self.assertIn((0,2), neighbours)
-        self.assertIn((0,3), neighbours)
-        self.assertIn((1,1), neighbours)
-        self.assertIn((1,3), neighbours)
-        self.assertIn((2,1), neighbours)
         self.assertIn((2,2), neighbours)
         self.assertIn((2,3), neighbours)
+        self.assertIn((2,4), neighbours)
+        self.assertIn((3,2), neighbours)
+        self.assertIn((3,4), neighbours)
+        self.assertIn((4,2), neighbours)
+        self.assertIn((4,3), neighbours)
+        self.assertIn((4,4), neighbours)
+        
+    
+        
