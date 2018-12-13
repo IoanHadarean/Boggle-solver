@@ -42,6 +42,8 @@ def all_grid_neighbours(grid):
    Get all of the possible neighbours for each position in the grid
    """
    neighbours = {}
+   #for each position in the grid(row, col coordinates), add a variable to store the position
+   #then for each position in the grid get the neighbours of that position if it's in the grid
    for position in grid:
        position_neighbours = neighbours_of_position(position)
        neighbours[position] = [p for p in position_neighbours if p in grid]
