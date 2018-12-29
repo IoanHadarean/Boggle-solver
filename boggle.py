@@ -23,7 +23,7 @@ def neighbours_of_position(coords):
     top_right = (row -1, col +1)
     
     #Left to right
-    left =(row, col -1)
+    left = (row, col -1)
     #The '(row,col)' coordinates passed to this function
     #are situated here
     right =(row, col +1)
@@ -56,3 +56,34 @@ def path_to_word(grid, path):
     #grid[p] returns choice(ascii_uppercase) for each key(row,col)
     #in the tuple    
     return ''.join([grid[p] for p in path]) 
+    
+def search(grid, dictionary):
+    """
+        Search through the paths to locate words by matching 
+        strings to words in a dictionary
+    """
+    neighbours = all_grid_neighbours(grid)
+    paths = []
+    
+    def do_search(path):
+        word = path_to_word(grid, path)
+        if word in dictionary:
+            paths.append(path)
+        for next_pos in neighbours[path[-1]]:
+            if next_pos not in path:
+                do_search(path + [next_pos])
+                
+    for position in grid:
+        do_search([position])
+        
+    words = []
+    for path in paths:
+        words.append(path_to_word(grid, path))
+    return set(words)
+    
+def get_dictionary(dictionary_file):
+    """
+    Load dictionary file
+    """
+    with open(dictionary_file) as f:
+        return [w.strip().upper() for w in f]
